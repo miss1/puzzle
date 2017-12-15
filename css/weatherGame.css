@@ -1,0 +1,174 @@
+/*头部*/
+#game_hrader{
+    width: 100%;
+    height: 50px;
+}
+
+#game_hrader img{
+    float: left;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#game_hrader span{
+    float: right;
+    height: 50px;
+    line-height: 50px;
+    font-size: 19px;
+    margin-right: 10px;
+}
+
+/*拼图游戏逻辑*/
+#game_content{
+    width: 100%;
+}
+
+#imgArea{
+    width: 80%;
+    position: relative;
+    background: darkcyan;
+    margin: 10px auto;
+}
+
+#imgArea div.imgCell{
+    float: left;
+    width: 73px;
+    height: 73px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 10;
+    box-shadow: 0 0 8px #fff;
+    transition-property: background-position;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+}
+
+#imgArea div.hover{
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+    box-shadow: 0 0 8px #000;
+    z-index: 20;
+    *border: 1px solid #09F;
+}
+
+#game_c{
+    width: 100%;
+}
+
+#game_control{
+    height: 40px;
+    width: 90%;
+    margin: 10px auto;
+    text-align: center;
+}
+
+#btn,#scroe,#level{
+    width: 30%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    text-align: center;
+    background: #8ecdab;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+#btn{
+    float: left;
+}
+
+#btn:hover,#level:hover{
+    cursor: pointer;
+    background: #62baa0;
+}
+
+#scroe{
+    float: right;
+    color: red;
+}
+
+#level{
+    clear: both;
+    display: inline-block;
+}
+
+#game_result{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+}
+
+#game_result span{
+    display: inline-block;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    text-align: center;
+    background: #5E5E5E;
+    border-radius: 5px;
+}
+
+/*结果界面*/
+#game_reward{
+    margin: 10px auto;
+    display: none;
+}
+
+#game_reward_tips{
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+#gameAnswer{
+    display: block;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+
+/*底部横向滚动条*/
+#game_footer{
+    width: 100%;
+    height: 110px;
+    overflow-x: auto;
+}
+
+#game_footer ul{
+    width: 100%;
+    height: 100px;
+    white-space: nowrap;
+}
+
+#game_footer ul li{
+    display: inline-block;
+    height: 100px;
+    width: 110px;
+}
+
+.imgcontent{
+    width: 90px;
+    height: 90px;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.select{
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+    box-shadow: 0 0 8px #000;
+    background: #C2F8ED;
+}
+
+/*加载提示*/
+#loading img{
+    display: block;
+    margin-top: 50px;
+    margin-left: 50px;
+    -webkit-animation:change 1s linear infinite;
+}
