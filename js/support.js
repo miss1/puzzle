@@ -14,7 +14,7 @@ $(document).ready(function () {
 
 //设置背景图
 function setBgPic() {
-    $("body").css('background', 'url("'+ '../img/bg_sunny.png' +'")');
+    $("body").css('background', 'url("'+ './img/bg_sunny.png' +'")');
     if (documentWidth > 700){
         $("body").css('background-size', 'auto '+documentHeight+'px');
         $("body").css('background-repeat', 'repeat');
