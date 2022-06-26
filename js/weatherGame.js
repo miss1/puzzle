@@ -334,10 +334,12 @@ function checkPass(rightArr, puzzleArr) {
 function passGame() {
     if ($.inArray(presentImg, passImg) == -1){
         passImg.push(presentImg);
+
+        $("#gameAnswer").text('Complete: ' + scroe);
+        passKnowledge[presentImg] = 'Complete: ' + scroe;
+
         rebackGame();
-        queryKnowledge("gameAnswer", function (txt) {
-            passKnowledge[presentImg] = txt;
-        });
+
         $("#game_result span").css('background', '#62baa0');
         $("#game_result span").click(function () {
             if (s == 0){
@@ -347,11 +349,11 @@ function passGame() {
             }
         });
     }else {
+        $("#gameAnswer").text('Complete: ' + scroe);
+        passKnowledge[presentImg] = 'Complete: ' + scroe;
+
         rebackGame();
-        queryKnowledge("gameAnswer", function (txt) {
-            passKnowledge[presentImg] = txt;
-        });
-        passKnowledge[presentImg] = $("#gameAnswer").text();
+
         console.log("info:"+passKnowledge[presentImg]);
         showReward(presentImg);
     }

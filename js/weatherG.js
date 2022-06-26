@@ -5,10 +5,8 @@ var count = 0;
 var limit = 0;
 
 $(document).ready(function () {
-    Bmob.initialize(APPLICATIONID, RESTAPIKEY);
-
     preperforM();
-    queryAllImg();
+    initGame($('#img_list').find('img')[0].src);
     initclick();
 });
 
@@ -38,38 +36,6 @@ function preperforM() {
     }
 }
 
-//从服务器获取所有图片
-function queryAllImg() {
-    var puzzle = Bmob.Object.extend("puzzle");
-    var query = new Bmob.Query(puzzle);
-    query.skip(count);
-    query.limit(limit);
-    query.find({
-        success:function (result) {
-            if (result.length != 0){
-                var img_html = '';
-                if (count == 0){
-                    initGame(result[0].get("img"));
-                    img_html += "<li class='select'><img src='"+ result[0].get("img") +"' class='imgcontent'></li>";
-                }else {
-                    img_html += "<li><img src='"+ result[0].get("img") +"' class='imgcontent'></li>";
-                }
-                count += limit;
-                console.log(result);
-                for (var i = 1; i < result.length; i++){
-                    img_html += "<li><img src='"+ result[i].get("img") +"' class='imgcontent'></li>"
-                }
-                $("#img_list > li:last-child").before(img_html);
-            }
-            $("#loading").hide();
-        },
-        error:function (error) {
-            console.log("query fail");
-            $("#loading").hide();
-        }
-    });
-}
-
 //点击事件绑定
 function initclick() {
     //返回上一页
@@ -81,15 +47,6 @@ function initclick() {
     $("#game_footer ul").on("click", "li", function () {
         console.log($(this).find('img')[0].src);
         initGame($(this).find('img')[0].src, this);
-    });
-
-    //底部滚动事件
-    $("#game_footer").scroll(function () {
-        var totalSize = 110 * ($("#img_list li").length - 1);
-        if ($(this).scrollLeft() + documentWidth == totalSize){
-            $("#loading").show();
-            queryAllImg();
-        }
     });
 }
 
