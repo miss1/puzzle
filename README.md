@@ -1,14 +1,14 @@
 # puzzle
 
-> h5实现拼图游戏<br>
-> 直接下载代码解压，运行index.html就能跑了<br>
+> Jigsaw Puzzle Game Created Using HTML and jQuery<br>
+> Just download the code, unzip it, and run index.html to run.<br>
 
-## 项目显示效果
+## Project Address
 
->[查看项目演示效果请戳这里](https://miss1.github.io/outLinkPage/puzzle/)<br>
+>[Click here to view the project demonstration](https://miss1.github.io/puzzle/)<br>
 
->手机端请扫描下面二维码<br>
-![image](https://github.com/miss1/puzzle/raw/master/screenshot/puzzlenew.png)
+>Or use your phone to scan the following QR code<br>
+![image](https://github.com/miss1/puzzle/raw/master/screenshot/puzzle.png)
 
-## 项目截图
+## Screenshot
 ![image](https://github.com/miss1/puzzle/raw/master/screenshot/screenshot1.png)<br>

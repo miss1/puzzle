@@ -14,7 +14,7 @@ function GenerateHtml(title, content) {
     var _html = '';
     _html += '<div id="mb_box"></div><div id="mb_con"><span id="mb_tit">'+ title +'</span>';
     _html += '<div id="mb_content">' + content +'</div>';
-    _html += '<div id="mb_btnbox"><input id="mb_btn_ok" type="button" value="确定"/><input id="mb_btn_no" type="button" value="取消"/></div>';
+    _html += '<div id="mb_btnbox"><input id="mb_btn_ok" type="button" value="OK"/><input id="mb_btn_no" type="button" value="Cancel"/></div>';
     _html += '</div>';
     //必须先将_html添加到body，再设置Css样式
     $("body").append(_html);

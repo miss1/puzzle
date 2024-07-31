@@ -48,15 +48,15 @@ function initGame(img, clicktarger) {
     }
 
     if (isInGame){
-        alertBox("切换图片", "游戏正在进行，确定要切换图片重新开始吗？", function () {
+        alertBox("Switch image", "The game is in progress. Are you sure you want to switch the picture and start again?", function () {
             removeSclection();
             changeState(clicktarger);
 
             imgSplit(img);
-            $("#btn").text("开始");
+            $("#btn").text("Stat");
             isInGame = false;
             scroe = 0;
-            $("#scroe").text("步数：0");
+            $("#scroe").text("Step：0");
         })
     }else {
         if (clicktarger != undefined){
@@ -77,7 +77,7 @@ function bindbtn() {
         $("#imgArea").fadeIn();
         $("#game_reward").fadeOut();
         if (isInGame){
-            alertBox("复原游戏", "游戏正在进行，确定要复原吗？", function () {
+            alertBox("Reset Game", "The game is in progress, are you sure you want to reset it?", function () {
                 imgSplit(presentImg);
                 rebackGame();
             })
@@ -87,10 +87,10 @@ function bindbtn() {
             cellOrder(imgRandArr);
             beginGamePc();
             beginGamePhone();
-            $("#btn").text("复原");
+            $("#btn").text("Reset");
             isInGame = true;
             scroe = 0;
-            $("#scroe").text("步数：0");
+            $("#scroe").text("Step：0");
         }
     });
 }
@@ -100,7 +100,7 @@ function bindlevel() {
     //切换难度
     $("#level").click(function () {
         if (isInGame){
-            alertBox("重新开始", "游戏尚未结束，确定要切换难度重新开始吗？", function () {
+            alertBox("Restart", "The game is not over yet. Are you sure you want to switch difficulty and start over?", function () {
                 if (lever < 6){
                     lever += 1;
                 }else {
@@ -128,10 +128,10 @@ function rebackGame() {
     imgCells.unbind("mouseout");
     imgCells.unbind("mousedown");
     imgCells.off("touchstart");
-    $("#btn").text("开始");
+    $("#btn").text("Start");
     isInGame = false;
     scroe = 0;
-    $("#scroe").text("步数：0");
+    $("#scroe").text("Step：0");
 }
 
 //切割图片
@@ -150,7 +150,7 @@ function imgSplit(img) {
             imgOrigArr.push(i*lever+j);
             cell = document.createElement("div");
             cell.className = "imgCell";
-            $(cell).css({width: cellWidth - 2, height: cellHeight - 2, left: j * cellWidth, top: i * cellHeight, background: "url('"+ img +"')", backgroundPosition: (-j)*cellWidth + 'px ' + (-i)*cellHeight + 'px'});
+            $(cell).css({width: cellWidth - 2, height: cellHeight - 2, left: j * cellWidth, top: i * cellHeight, background: "url('"+ img +"')", backgroundSize: width + 'px ' + height + 'px', backgroundPosition: (-j)*cellWidth + 'px ' + (-i)*cellHeight + 'px'});
             $("#imgArea").append(cell);
         }
     }
@@ -313,7 +313,7 @@ function cellExchange(indexfrom, indexto) {
         imgRandArr[indexfrom] = imgRandArr[indexto];
         imgRandArr[indexto] = temp;
 
-        $("#scroe").text("步数：" + (scroe+=1));
+        $("#scroe").text("Step：" + (scroe+=1));
 
         //判断是否完成全部移动，可以结束游戏
         if (checkPass(imgOrigArr, imgRandArr)){
@@ -366,7 +366,7 @@ function showReward(img) {
     $("#btn").unbind();
     $("#level").unbind();
     $("#game_result span").text("back");
-    $("#game_reward").css('background', 'url('+ img +')');
+    $("#game_reward").css({background: 'url('+ img +')', backgroundSize: width + 'px ' + height + 'px'});
     s = 1;
 }
 
